@@ -1,37 +1,24 @@
-import React, { useState } from "react";
+import React from 'react';
 
-function ItemForm() {
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("Produce");
-
+const Filter = ({ category, onCategoryChange }) => {
   return (
-    <form className="NewItem">
-      <label>
-        Name:
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-
-      <label>
-        Category:
+    <div className="mb-4">
+      <label className="block text-sm font-medium">
+        Filter by Category:
         <select
-          name="category"
           value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          onChange={(e) => onCategoryChange(e.target.value)}
+          className="mt-1 p-2 border rounded ml-2"
         >
+          <option value="All">All</option>
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>
-          <option value="Dessert">Dessert</option>
+          <option value="Meat">Meat</option>
+          <option value="Pantry">Pantry</option>
         </select>
       </label>
-
-      <button type="submit">Add to List</button>
-    </form>
+    </div>
   );
-}
+};
 
-export default ItemForm;
+export default Filter;
