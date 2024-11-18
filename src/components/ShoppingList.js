@@ -14,7 +14,7 @@ const ShoppingList = () => {
   }, []);
 
   const handleAddItem = (newItem) => {
-    setItems([...items, newItem]);
+    console.log("In ShoppingList:", newItem);
   };
 
   const handleUpdateItem = (updatedItem) => {
@@ -39,13 +39,13 @@ const ShoppingList = () => {
   });
 
   return (
-    <div>
+    <div className="p-4">
       <ItemForm onAddItem={handleAddItem} />
       <Filter 
         category={selectedCategory} 
         onCategoryChange={handleCategoryChange} 
       />
-      <ul className="space-y-2 mt-4">
+      <ul className="space-y-2">
         {itemsToDisplay.map((item) => (
           <Item
             key={item.id}

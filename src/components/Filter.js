@@ -1,20 +1,24 @@
-import React from "react";
+import React from 'react';
 
-function Filter({ category, onCategoryChange }) {
+const Filter = ({ category, onCategoryChange }) => {
   return (
-    <div className="Filter">
-      <select
-        name="filter"
-        value={category}
-        onChange={(e) => onCategoryChange(e.target.value)}
-      >
-        <option value="All">Filter by category</option>
-        <option value="Produce">Produce</option>
-        <option value="Dairy">Dairy</option>
-        <option value="Dessert">Dessert</option>
-      </select>
+    <div className="mb-4">
+      <label className="block text-sm font-medium">
+        Filter by Category:
+        <select
+          value={category}
+          onChange={(e) => onCategoryChange(e.target.value)}
+          className="mt-1 p-2 border rounded"
+        >
+          <option value="All">All</option>
+          <option value="Produce">Produce</option>
+          <option value="Dairy">Dairy</option>
+          <option value="Meat">Meat</option>
+          <option value="Pantry">Pantry</option>
+        </select>
+      </label>
     </div>
   );
-}
+};
 
 export default Filter;
