@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ItemForm from './ItemForm';
 import Filter from './Filter';
 import Item from './Item';
+import CartSummary from './CartSummary';
 
 const ShoppingList = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -14,7 +15,7 @@ const ShoppingList = () => {
   }, []);
 
   const handleAddItem = (newItem) => {
-    console.log("In ShoppingList:", newItem);
+    setItems([...items, newItem]);
   };
 
   const handleUpdateItem = (updatedItem) => {
@@ -40,6 +41,7 @@ const ShoppingList = () => {
 
   return (
     <div className="p-4">
+      <CartSummary items={items} />
       <ItemForm onAddItem={handleAddItem} />
       <Filter 
         category={selectedCategory} 
